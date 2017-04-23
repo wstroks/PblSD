@@ -1,0 +1,21 @@
+potencia: 
+
+digite no uart
+
+30.20#     ->>> base.expoente#
+
+
+fatorial:
+
+10.     -> numerodeFatorial.
+
+
+bubblesort: só aceita 5 valores no vetor então a maneira de inserir é
+
+
+20.30.44.55.66#    -> numero1.numero2.numero3.numero4.numero5#
+
+
+Fibo:
+
+10.   -> sequencia.
