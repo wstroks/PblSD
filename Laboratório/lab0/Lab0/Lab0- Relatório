@@ -1,0 +1,51 @@
+Lab0 - 2017.1
+
+Integrantes: Pedro Kenndy, Ivan e Washington 
+Data: 03/04/2017
+Tutor: Anfranserai
+
+1-Mostre os três arquivos Verilog que você modificou.
+
+Resposta:
+
+As modificações no lab0, foram dos arquivos Mux2_1.v,FA.v,ml505top.v 
+
+Descrição das modificações de cada arquivo:
+
+Mux2_1: Foi criado duas ands, um or e uma not. Sendo a 
+formúla ja dada no projeto (OUT = A*(~SEL) + B*(SEL) ), apenas sendo feito a transformação 
+para verilog estrutural, sendo as modificações corresponde as linhas 18 à 22. Ainda foi feito o comentário da linha 28, 
+que representa o assign do OUT.
+
+
+FA: No arquivo fa as modificações corresponde a linha 14 à 21. Foram construidas duas xors, duas ands e uma or. 
+Para representaçao da formula abaixo retirado da tabela verdade do somador.
+Cout= ((A & B) | ((A^B) & Cin));
+Sum = (A^B^Cin);
+
+
+ml505top: Modificações contidas nas linhas 53 à 60 para implementação, sendo comentado a linha 63 pois ja foi instanciado 
+o fa e na linha 63 é necessário um comentário. 
+
+
+
+
+2. Quantas portas lógicas o seu somador precisa para ser implementado?
+Respostas: 5 portas lógicas, duas xor, duas and e uma or.
+
+
+
+
+Adder: nas linhas 32 à 44 foi criado o generate, criando um somador ripple de 8 bits já definido pelo arquivo no parametro Width.
+
+
+Conclusão: O erro em questão para a não conclusão do lab, foi a declaração errada do generate visto que com as alterações do mux2_1, ml505top e fa ao compilar o LED RGB permanecia na cor verde. Mas com a adição do adder LED RGB ficava vermelho. 
+
+
+
+
+
+
+
+
+
