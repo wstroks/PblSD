@@ -1,0 +1,86 @@
+﻿Lab0 - 2017.1
+
+Integrantes: Pedro Kenndy, Ivan e Washington 
+Data: 10/04/2017
+Tutor: Anfranserai
+
+
+Pré Laboratório
+
+1- Existem 16 Le´s para um LAB
+2- Existe o modo
+	- normal, aplicações gerais e apresenta 4 bits de entrada 
+	-aritmético, ideal para implementar somador, contador e operações artiméticas além de apresentar 2 bits de entrada.
+vale ressaltar que esses modos são ativados automaticamente pelo quartus, mas pode ser definido na aplicação em qual momento 
+ideal deve ser usado um dos dois.
+3- O LUT normal possui quatro entrada.
+4-Apresenta 28,848 LE´s de acordo com o modelo EP4CE30.
+5- O lE´s de modo artimético, pois ele é implementado um somador de 2 bits e um carry básico.
+
+Testes
+
+Análise de Circuitos - Resultados
+
+Adder  width=16
+
+• Número de LEs ocupados: 31
+• Número de LEs ocupados por modo de operação:  
+		Modo Normal:31
+		Modo Aritmético:0
+
+• Número de LABs totalmente ou parcialmente utilizados: 2
+• Determine o máximo atraso de propagação do circuito:
+
+RR=        RF=          FR=          FF=
+
+Adder  width=32
+
+• Número de LEs ocupados: 67
+• Número de LEs ocupados por modo de operação:  
+		Modo Normal:67
+		Modo Aritmético:0
+		
+• Número de LABs totalmente ou parcialmente utilizados: 6
+• Determine o máximo atraso de propagação do circuito:
+RR= 40.000         RF=36.507           FR=37.862           FF=40.691
+
+BehavioralAdder width=16
+
+• Número de LEs ocupados: 17
+• Número de LEs ocupados por modo de operação:  
+		Modo Normal:1
+		Modo Aritmético:16
+		
+• Número de LABs totalmente ou parcialmente utilizados: 2
+• Determine o máximo atraso de propagação do circuito:
+RR= 11.916         RF=11.922          FR=12.230          FF=12.290
+
+BehavioralAdder width=32
+
+• Número de LEs ocupados: 33
+• Número de LEs ocupados por modo de operação:  
+		Modo Normal:1
+		Modo Aritmético:32
+		
+• Número de LABs totalmente ou parcialmente utilizados: 3
+• Determine o máximo atraso de propagação do circuito:
+RR= 13.721        RF=13.771          FR=14.309           FF=14.305
+
+Acompanhamento
+
+
+1. O número de LEs usados para implementar o módulo Adder foi o mesmo que você esperava
+que ele utilizasse durante sua estimativa? Não, eu esperava que fosse utilizado 2x o Widht,
+porem os numeros foram diferentes disso.
+
+
+2. Descreva as características de implementação do módulo BehavioralAdder levando em
+consideração a composição de elementos lógicos do dispositivo. O módulo BehavioralAdder foi
+implementado utilizando operadoresaritimeticos (+)
+
+
+3. Por que o módulo BehavioralAdder mapeou menos LEs quando comparado ao módulo
+estrutural Adder que você descreveu? Pois como o BehavioralAdder foi implementado utilizando 
+operadores aritimeticos o quartus identificou que fosse para ser utilizados LE's aritiméticos,
+necessitando de menos LE's que o modulo Adder que foi feito em verilog estrutural, sendo identi-
+ficado para utilizar os LE's normais.
