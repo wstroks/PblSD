@@ -84,3 +84,5 @@ exit:		mov r14, r2
 		movia r5, UART0		
 		call nr_uart_txhex32  #Pega o resultado e joga para macro que ler em hexadecimal
 			
+
+			
