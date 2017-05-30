@@ -5,6 +5,7 @@ module Mux2_1(
         output reg [31:0] saida
 );
 
+
   always @(*) begin
 
       if (~controle)
