@@ -1,0 +1,29 @@
+C:/Users/Ian/Desktop/teste/lab3/lab3/src/ALUdec.v {1 {vlog -work work -stats=none C:/Users/Ian/Desktop/teste/lab3/lab3/src/ALUdec.v
+Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+-- Compiling module ALUdec
+
+Top level modules:
+	ALUdec
+
+} {} {}} C:/Users/Ian/Desktop/teste/lab3/lab3/src/ALU.v {1 {vlog -work work -stats=none C:/Users/Ian/Desktop/teste/lab3/lab3/src/ALU.v
+Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+-- Compiling module ALU
+
+Top level modules:
+	ALU
+
+} {} {}} C:/Users/Ian/Desktop/teste/lab3/lab3/sim/tb/ALUTestVectorTestbench.v {1 {vlog -work work -stats=none C:/Users/Ian/Desktop/teste/lab3/lab3/sim/tb/ALUTestVectorTestbench.v
+Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+-- Compiling module ALUTestVectorTestbench
+
+Top level modules:
+	ALUTestVectorTestbench
+
+} {} {}} C:/Users/Ian/Desktop/teste/lab3/lab3/sim/tb/ALUTestbench.v {1 {vlog -work work -stats=none C:/Users/Ian/Desktop/teste/lab3/lab3/sim/tb/ALUTestbench.v
+Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+-- Compiling module ALUTestbench
+
+Top level modules:
+	ALUTestbench
+
+} {} {}}

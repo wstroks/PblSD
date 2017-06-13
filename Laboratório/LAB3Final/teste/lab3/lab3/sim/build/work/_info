@@ -1,0 +1,93 @@
+m255
+K3
+13
+cModel Technology
+Z0 d/home/aluno/Downloads/teste/lab3/lab3/sim/build
+vALU
+Z1 I]YcJUYHe01dB471dH>iJI3
+Z2 VX8IY7zXg<dYkZD0;`U4SX0
+Z3 d/home/aluno/Downloads/teste/lab3/lab3/sim/build
+Z4 w1497280247
+Z5 8../../src/ALU.v
+Z6 F../../src/ALU.v
+L0 18
+Z7 OV;L;10.1d;51
+r1
+31
+Z8 !s102 -nocovercells
+Z9 o+acc -source -nocovercells -O0
+Z10 !s92 +acc -source -nocovercells +incdir+../../src+incdir+../../sim/tb -O0
+Z11 n@a@l@u
+Z12 !s100 j0YOLfz>:;L=GP0T`:TdB3
+Z13 !s108 1497280544.306203
+Z14 !s107 ../../src/ALUop.vh|../../src/Opcode.vh|../../src/ALU.v|
+Z15 !s90 +acc|-source|-nocovercells|+incdir+../../src+incdir+../../sim/tb|../../src/ALU.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vALUdec
+Z16 ICYC[hKE=RalVhHBB`Jcoi1
+Z17 VIH5nfG^GEgOhTIZfcG>4D2
+R3
+Z18 w1497280485
+Z19 8../../src/ALUdec.v
+Z20 F../../src/ALUdec.v
+L0 16
+R7
+r1
+31
+R9
+Z21 n@a@l@udec
+Z22 !s100 D?50z2a==4>DP]4HD_2od3
+Z23 !s108 1497280544.270679
+Z24 !s107 ../../src/ALUop.vh|../../src/Opcode.vh|../../src/ALUdec.v|
+Z25 !s90 +acc|-source|-nocovercells|+incdir+../../src+incdir+../../sim/tb|../../src/ALUdec.v|
+R8
+R10
+!i10b 1
+!s85 0
+!s101 -O0
+vALUTestbench
+Z26 IIQT35<R^K@iDza4KmZD>n0
+Z27 Vo`cUXigK]QT;E49l[Ccm<3
+R3
+Z28 w1497280539
+Z29 8../../sim/tb/ALUTestbench.v
+Z30 F../../sim/tb/ALUTestbench.v
+L0 15
+R7
+r1
+31
+R8
+R9
+R10
+Z31 n@a@l@u@testbench
+!i10b 1
+Z32 !s100 EVzO09;]e5[_XQD80@doo0
+!s85 0
+Z33 !s108 1497280544.337660
+Z34 !s107 ../../src/Opcode.vh|../../sim/tb/ALUTestbench.v|
+Z35 !s90 +acc|-source|-nocovercells|+incdir+../../src+incdir+../../sim/tb|../../sim/tb/ALUTestbench.v|
+!s101 -O0
+vALUTestVectorTestbench
+!i10b 1
+!s100 U;Q^4dNH6YNRJc8XS=6G^1
+IESBcmZ4RJ6@X:B[nUg^VX3
+VmN=OzPQjP4DD=`BUQS3Vj3
+R3
+w1497279806
+8../../sim/tb/ALUTestVectorTestbench.v
+F../../sim/tb/ALUTestVectorTestbench.v
+L0 10
+R7
+r1
+!s85 0
+31
+!s108 1497280544.373042
+!s107 ../../sim/tb/ALUTestVectorTestbench.v|
+!s90 +acc|-source|-nocovercells|+incdir+../../src+incdir+../../sim/tb|../../sim/tb/ALUTestVectorTestbench.v|
+!s101 -O0
+R8
+R9
+R10
+n@a@l@u@test@vector@testbench

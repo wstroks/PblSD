@@ -1,0 +1,94 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/Ian/Desktop/Verilog pbl/Nova pasta
+vALU
+Z0 !s110 1472322415
+!i10b 1
+!s100 ?`O2OlfIIoH1GY`4iZWB]3
+INBi916QYzF?5bK48463KO0
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 dC:/Users/Ian/Desktop/teste/lab3/lab3
+w1472321613
+8C:/Users/Ian/Desktop/teste/lab3/lab3/src/ALU.v
+FC:/Users/Ian/Desktop/teste/lab3/lab3/src/ALU.v
+L0 18
+Z3 OV;L;10.4d;61
+r1
+!s85 0
+31
+Z4 !s108 1472322415.000000
+!s107 C:\Users\Ian\Desktop\teste\lab3\lab3\src\ALUop.vh|Opcode.vh|C:/Users/Ian/Desktop/teste/lab3/lab3/src/ALU.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/Ian/Desktop/teste/lab3/lab3/src/ALU.v|
+!i113 1
+Z5 o-work work
+n@a@l@u
+vALUdec
+R0
+!i10b 1
+!s100 9cf<o3F11;Y2;Hje@?9GT3
+IP9eP8XleQP_dVjlL[K9kg3
+R1
+R2
+w1472079286
+8C:/Users/Ian/Desktop/teste/lab3/lab3/src/ALUdec.v
+FC:/Users/Ian/Desktop/teste/lab3/lab3/src/ALUdec.v
+L0 16
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:\Users\Ian\Desktop\teste\lab3\lab3\src\ALUop.vh|Opcode.vh|C:/Users/Ian/Desktop/teste/lab3/lab3/src/ALUdec.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/Ian/Desktop/teste/lab3/lab3/src/ALUdec.v|
+!i113 1
+R5
+n@a@l@udec
+vALUTestbench
+R0
+!i10b 1
+!s100 bncXD03zMhQOa<ZkbCTVK2
+I]YfO2UfYEZAQ8MdaYebMC3
+R1
+R2
+w1472167912
+8C:/Users/Ian/Desktop/teste/lab3/lab3/sim/tb/ALUTestbench.v
+FC:/Users/Ian/Desktop/teste/lab3/lab3/sim/tb/ALUTestbench.v
+L0 15
+R3
+r1
+!s85 0
+31
+R4
+!s107 Opcode.vh|C:/Users/Ian/Desktop/teste/lab3/lab3/sim/tb/ALUTestbench.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/Ian/Desktop/teste/lab3/lab3/sim/tb/ALUTestbench.v|
+!i113 1
+R5
+n@a@l@u@testbench
+vALUTestVectorTestbench
+R0
+!i10b 1
+!s100 cmQKzSmz3>e8Da>7@Rg>J1
+Ii3JK2AD0R1QHXNFhm2;540
+R1
+R2
+w1472152022
+8C:/Users/Ian/Desktop/teste/lab3/lab3/sim/tb/ALUTestVectorTestbench.v
+FC:/Users/Ian/Desktop/teste/lab3/lab3/sim/tb/ALUTestVectorTestbench.v
+L0 11
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/Ian/Desktop/teste/lab3/lab3/sim/tb/ALUTestVectorTestbench.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/Ian/Desktop/teste/lab3/lab3/sim/tb/ALUTestVectorTestbench.v|
+!i113 1
+R5
+n@a@l@u@test@vector@testbench
