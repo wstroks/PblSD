@@ -1,3 +1,18 @@
+/*
+ Alunos: Washington Pagotto Batista, Pedro kenndy e Ivan Rios
+ Universidade Estadual de Feira de Santana 2017.1
+ TEC499 - MI - Sistemas Digitais
+
+ Modulo: MEmoria.v
+ Descrição: Modulo criado para quinto estagio da pipeline 
+ Entradas:
+    memEndereco: 32-bit value
+    memValor: 32-bit value
+	lerMemoria,escreverMemoria: 1 bit
+ Saida:
+   saida: Só é gerar uma saida quando é feito a leitura 
+*/
+
 module memoriaBloco
 (
 	

@@ -1,11 +1,27 @@
+/*
+ Alunos: Washington Pagotto Batista, Pedro kenndy e Ivan Rios
+ Universidade Estadual de Feira de Santana 2017.1
+ TEC499 - MI - Sistemas Digitais
+
+ Modulo: PcAdder.v
+ Descrição: Modulo criado para quinto estagio da pipeline 
+ Entradas:
+    A: 32-bit value
+    B: 32-bit value
+	
+ Saida:
+    saidaAdder: A+B  visto que b sempre será 4
+*/
+
+
 module PCAdder(
   input [31:0] A,
-  output reg [31:0] saidaAdder
+  input [31:0] B,
+  output  [31:0] saidaAdder
 );
+   
+    
+assign  saidaAdder =(A + B);
+  
 
-  always @(*)begin
-
-    saidaAdder <=  32'b00000000000000000000000000000100 +A;
-
-  end
 endmodule
