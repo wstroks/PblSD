@@ -33,7 +33,8 @@ always #(Halfcycle) Clock = ~Clock;
 	    reg [30:0] rand_31;
 		reg[31:0] um= 32'h00000001;
 	    reg[31:0] x= 32'h00000001;
-		reg[31:0] y= 32'h00000001;
+		reg[31:0] y= 32'h00000000;
+		reg[31:0] d= 32'h00000001;
 		
 //insta do modulo if	
 IF DUT1(
@@ -142,7 +143,8 @@ for(i = 0; i < loops; i = i + 1)
             	checkOutput(entradaPC, ALu , data1 , data2 , PCescreve,clock,c1,c2,ler,escreve,Clock);
 	end
 	
-	/*
+	um=32'h00000001;
+	x=32'h00000001;
 	for(i = 0; i < loops; i = i + 1)
         begin
             #1;
@@ -150,7 +152,7 @@ for(i = 0; i < loops; i = i + 1)
 				Como ja foi escrito na memoria manualmente e eu sei a posição de cada endereço. Esse teste basicamente verifica se o que foi escrito realmente esta na memoria
 			*/
 			
-	/*		
+		
             rand_31 = {$random} & 31'h7FFFFFFF;
             entradaPC = {1'b1, rand_31};
             ALu= um;
@@ -165,10 +167,11 @@ for(i = 0; i < loops; i = i + 1)
 			c2=0;
 			ler=1;
 			escreve=0;
+			
 			REFoutPCSaida=entradaPC;
 			REFoutSaidaDadaosInstruc=ALu;
 			REFoutwriteDataMemWB=data1;
-			REFoutsaidaMemoria=um;
+			REFoutsaidaMemoria=ALu;
 			REFoutsaidaAdder= entradaPC+32'h00000004;
 			
 	        
@@ -181,7 +184,7 @@ for(i = 0; i < loops; i = i + 1)
         ///////////////////////////////
         // Hard coded tests go here
         ///////////////////////////////
-*/
+
         $display("\n\nADD YOUR ADDITIONAL TEST CASES HERE\n"); 
        
         $display("\n\nALL TESTS PASSED!");
