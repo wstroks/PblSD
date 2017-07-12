@@ -1,11 +1,15 @@
 module EX(
+
     input [31:0] RSd, RTd,Memoria,registrado, emediato,
-    input controle1P,controle2P,controle1S,controle2S,controleDoMUx2,
+    input controle1P,controle2P,controle1S,controle2S,controleDoMUx2, regDest
     input [5:0] opcode,
-    output reg [4:0] ALUop,
-    output reg [31:0] MuxP, MuxS, Mux2Saida,final
+    input [4:0] rt, rd
+    output reg [4:0] destinoReg
+    output reg [31:0] MuxS, final
 );
   
+wire [4:0] ALUop;
+wire [31:0] MuxP, Mux2Saida;
 
 Mux3_1 rsData(
   .entradaA(RSd), 
@@ -30,6 +34,13 @@ Mux2_1 SegundaMUx2(
   .entradaB(emediato),
   .controle(controleDoMUx2),
   .saida(Mux2Saida));
+
+Mux2_1 registradorDestino(
+  .entradaA(rt),
+  .entradaB(rd),
+  .controle(regDest),
+  .saida(registradorDest)); 
+);
   
  Alu_decodica dec(
   .funct(emediato[5:0]), 
