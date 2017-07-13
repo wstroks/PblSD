@@ -55,7 +55,7 @@ memoriaBloco memor
 (
 	.memEndereco(writeDataMemWB),
 	.memValor(SaidaDadosInstruc),
-	.escreverMemoria(controleMemoria),
+	.controle(controleMemoria),
 	.saida(saidaMemoria)
 );
   
