@@ -1,5 +1,7 @@
 module moduloGeral(
-	input Clock
+	input Clock,
+  output reg [5:0] registradorSaida,
+  output reg [31:0] dadoSaida
 );
 
 wire [31:0] saidaMem, saidaPcIF, saidaALU, RS, RT, imEX, aluMEM, entradaPCmult, entradaPcID, entradaInstID, RTdataEXMEM;
@@ -226,5 +228,12 @@ Mux2_1 muxControle(
   .saida(muxC)
 
 );
+
+always@(*) begin
+
+  registradorSaida <= regDestMem;
+  dadoSaida <= saidaWB;
+
+end
 
 endmodule
