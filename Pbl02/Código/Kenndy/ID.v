@@ -1,15 +1,14 @@
-module ID(
-  
+module ID( 
 	
   input VaiEscrever,
   input [31:0] pc, inst, writeData, exOut, 
   input [1:0] forbranchA, forbranchB, PCsrc,
   input [4:0] writeRegister,
-  input signExtendControl, clk, regWrite,
+  input signExtendControl, clk,
   output wire [31:0] Rsdata, RTdata, PCOut, imm_valueOut, pcmultiplexed,
   output wire [4:0] addrRsOut, addrRtOut, addrRdOut,
   output wire cmp_eq
-  
+
 );
   
   wire [31:0] rdata0out, rdata1out, extendedOut, jump, muxOut1, muxOut2, branch;
@@ -37,7 +36,7 @@ registerBank armazena(
 );
   
   
-saidaAdder adderId(
+PCAdder adderId(
   .A(pc), //pc + 4 da merda aqui
   .B(extendedOut),
   .saidaAdder(branch)
@@ -55,35 +54,36 @@ jump jumpExtend(
   );
 
 Mux4_1 forA(
-  .A(rdata0out),
-  .B(writeData),
-  .C(exOut),
-  .D(zero),
-  .control(forbranchA),
+  .entradaA(rdata0out),
+  .entradaB(writeData),
+  .entradaC(exOut),
+  .entradaD(zero),
+  .controle(forbranchA),
   .Out(muxOut1)
   );
 
 Mux4_1 forB(
-  .A(rdata1out),
-  .B(writeData),
-  .C(exOut),
-  .D(zero),
-  .control(forbranchB),
-  .Out(muxOut2)
+  .entradaA(rdata1out),
+  .entradaB(writeData),
+  .entradaC(exOut),
+  .entradaD(zero),
+  .controle(forbranchB),
+  .saidaMux4_1(muxOut2)
   );
 
 comparador_ID comparador (
-  .A(muxOut1),
-  .B(muxOut2),
+  .entradaA(muxOut1),
+  .entradaB(muxOut2),
   .saida(cmp_eq)
   );
 
 Mux4_1 PCsource(
-  .A(pc),
-  .B(jump),
-  .C(branch),
-  .D(muxOut1),
-  .control(PCsrc),
-  .Out(pcmultiplexed)
+  .entradaA(pc),
+  .entradaB(jump),
+  .entradaC(branch),
+  .entradaD(muxOut1),
+  .controle(PCsrc),
+  .saidaMux4_1(pcmultiplexed)
   );
+
 endmodule

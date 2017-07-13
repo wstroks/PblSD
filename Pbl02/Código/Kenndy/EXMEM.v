@@ -13,7 +13,7 @@ module EXMEM(
  
   registradorWB=0;
   registradorM=0;
-  regirstradorALU=0;
+  registradorALU=0;
   saidaData=0;
   registradorRD=0;
 

@@ -1,17 +1,18 @@
-`include "Opcode.vh"
+`include "Opcode.v"
 
 module Control(
   input cmp_eq,
   input [5:0] opcode,
   output reg [1:0] PCsrc,
-  output reg IFflush, signExt, IorD,
+  output reg IFflush, signExt, IorD, noDest,
   output reg regWrite, memToReg,          //wb signals
   output reg memRead, memWrite,                 //mem signals
   output reg ALUsrc, regDst,     	          //ex signals
-  output reg [5:0] opcodeOut
+  output reg [5:0] opcodeOut,
+  output reg branch
   );
 
-  wire divOP;
+  reg divOP;
 
   always @ ( * ) begin
     
@@ -31,12 +32,17 @@ module Control(
     regDst    <= 0;
     noDest    <= 0;
     opcodeOut <= opcode;
+    divOP <= 0;
 
-    divOP <= (opcode == `DIV);
+    if (opcode == `DIV) begin
+
+      divOP <= 1;
+
+    end
 
     case (opcode)
       
-	 `RTYPE: begin
+	   `RTYPE: begin
                 
 			if(~divOP) begin //tipo r comum
 
@@ -44,8 +50,8 @@ module Control(
                    regDst    <= 1;
 
             end 
-
-      `ADDI: begin
+      end
+    `ADDI: begin
                 regWrite    <= 1;
                 ALUsrc      <= 1;
       end

@@ -10,7 +10,4 @@ Mux2_1 dataMux(
   .controle(controle),
   .saida(writeDataSaida));
 
-
-
-
 endmodule

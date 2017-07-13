@@ -2,23 +2,30 @@ module moduloGeral(
 	input Clock
 );
 
-wire [31:0] saidaMem, saidaPc, saidaALU, RS, RT, imEX, aluMEM
-wire OpcodeJump, OpcodeDiv, controleIFID, controlerAddrMem, saidaFwdC
-wire [1:0] saidaFwdA, saidaFwdB
-wire [4:0] saidaIDEXrt, saidaIDEXrs
+wire [31:0] saidaMem, saidaPcIF, saidaALU, RS, RT, imEX, aluMEM, entradaPCmult, entradaPcID, entradaInstID, RTdataEXMEM;
+wire [31:0] entradaIDEXrs, entradaIDEXrt, entradaIDEX, entradaIDEXpc, entradaIDEXimm, PCidex, RTdataIF;
+wire [31:0] memoriaWB, aluWB, saidaWB;
+wire OpcodeJump, OpcodeDiv, controleIFID, controlerAddrMem, saidaFwdC, escreveReg, extensorID, cmpControle;
+wire [1:0] saidaFwdA, saidaFwdB, seletorPC, saidaWBidex, saidaWBexmem, saidaWBcontrole;
+wire [4:0] saidaIDEXrt, saidaIDEXrs, saidaIDEXrd, rsIDEX, rdIDEX, rtIDEX, regDestEXMEM, regDestToMem, regDestMem;
+wire saidaEXcontrole, saida2EXcontrole, memToRegEX, escreverMemEx, lerMemEx, branchControle, pcHazard, ifIDhazard, hazardMux;
+wire branchA, branchB;
+wire [5:0] opcodeEX;
+wire [2:0] saidaMidex, saidaMexmem;
+wire [13:0] muxC;
+wire [7:0] entradaEXcon;
 	
-1-IF moduloIF(
+IF moduloIF(
 
-	.entradaPC(),
+	.entradaPC(entradaPCmult),
 	.ALu(aluMEM),
-	.data1(),
-	.data2(),
-	.PCescreve(),
+	.data1(RTdataIF),
+	.data2(saidaWB),
+	.PCescreve(pcHazard),
 	.clock(Clock),
 	.c1(controleAddrMem),
 	.c2(saidaFwdC),
-	.ler(),
-	.escreve(),
+	.controleMemoria(saidaMexmem[2]),
 	.saidaMemoria(saidaMem),
 	.saidaAdder(saidaPc)
 
@@ -29,80 +36,143 @@ IFID ifID(
 	.Clock(Clock),
 	.pc(saidaPc),
 	.instrucao(saidaMem),
-	.sinalHazard(),
+	.sinalHazard(ifIDhazard),
 	.sinalControle(controleIFID),
-	.saidaPC(), 
-	.saidaInstrucao()
+	.saidaPC(entradaPcID), 
+	.saidaInstrucao(entradaInstID)
 
 );
 
-2-ID moduloID(
+ID moduloID(
 
-	
+	.VaiEscrever(escreveReg),
+  	.pc(entradaPcID), 
+  	.inst(entradaInstID), 
+  	.writeData(saidaWB), 
+  	.exOut(saidaALU), 
+  	.forbranchA(branchA), 
+  	.forbranchB(branchB), 
+  	.PCsrc(seletorPC),
+  	.writeRegister(regDestMem),
+  	.signExtendControl(extensorID), 
+  	.clk(Clock), 
+  	.Rsdata(entradaIDEXrs), 
+  	.RTdata(entradaIDEXrt), 
+  	.PCOut(entradaIDEXpc), 
+  	.imm_valueOut(entradaIDEXimm), 
+  	.pcmultiplexed(entradaPCmult),
+  	.addrRsOut(rsIDEX), 
+  	.addrRtOut(rtIDEX), 
+  	.addrRdOut(rdIDEX), 
+  	.cmp_eq(cmpControle)	
 
 );
 
 IDEX idEX(
 
 	.clock(Clock),
-  	.WB(),
-  	.M(),
-  	.EX(),
-  	.regRS(), 
-  	.regRt(), 
-  	.imm_value(), 
-  	.PC(),
-  	.addrRs(), 
-  	.addrRt(), 
-  	.addrRd(),
-  	.MOut(),
-  	.EXOut(),
+  	.WB(muxC[1:0]),
+  	.M(muxC[4:2]),
+  	.EX(muxC[13:5]),
+  	.regRS(entradaIDEXrs), 
+  	.regRt(entradaIDEXrt), 
+  	.imm_value(entradaIDEXimm), 
+  	.PC(entradaIDEXpc),
+  	.addrRs(rsIDEX), 
+  	.addrRt(rtIDEX), 
+  	.addrRd(rdIDEX),
+  	.MOut(saidaMidex),
+  	.EXOut(entradaEXcon),
   	.regRsOut(RS), 
   	.regRtOut(RT), 
-  	.PCOut(), 
+  	.PCOut(PCidex), 
   	.imm_valueOut(imEX),
   	.addrRsOut(saidaIDEXrs), 
   	.addrRtOut(saidaIDEXrt), 
-  	.addrRdOut(),
-  	.WBOut()
+  	.addrRdOut(saidaIDEXrd),
+  	.WBOut(saidaWBidex)
 
 );
 
-3-EX moduloEX(
+EX moduloEX(
 
 	.RSd(RS), 
 	.RTd(RT),
-	.Memoria(),
+	.Memoria(saidaWB),
 	.registrado(aluMEM), 
 	.emediato(imEX),
     .controle1P(saidaFwdA[0]),
     .controle2P(saidaFwdA[1]),
     .controle1S(saidaFwdB[0]),
     .controle2S(saidaFwdB[1]),
-    .controleDoMUx2(), 
-    .opcode(),
-    .ALUop(),
-    .MuxP(),
-    .MuxS(), 
-    .Mux2Saida(),
+    .controleDoMUx2(entradaEXcon[1]), 
+    .opcode(entradaEXcon[7:2]),
+    .destinoReg(regDestEXMEM),
+    .regDest(entradaEXcon[0]),
+    .MuxS(RTdataEXMEM), 
+    .rt(saidaIDEXrt),
+    .rd(saidaIDEXrd),
     .final(saidaALU)
 
 );
 
+EXMEM exMEM(
+
+	.Clock(Clock),
+  	.WB(saidaWBidex),
+  	.M(saidaMidex),
+  	.RD(regDestEXMEM),
+  	.entradaData(RTdataEXMEM), 
+  	.saidaALU(saidaALU),
+  	.registradorM(saidaMexmem),
+  	.registradorWB(saidaWBexmem),
+  	.saidaData(RTdataIF), 
+  	.registradorALU(aluMEM),
+  	.registradorRD(regDestToMem)
+
+);
+
+MEMWB memWB(
+
+	.Clock(Clock),
+	.saidaALU(saidaALU), 
+	.dataMEM(saidaMem),
+	.registradorDestinoData(regDestToMem),
+	.WB(saidaWBexmem),
+	.saidaALUwb(aluWB), 
+	.saidaMEM(memoriaWB),
+	.saidaDestinoData(regDestMem),
+	.regWB(saidaWBcontrole)
+
+);
+
+WB moduloWB(
+
+	.memoriaSaida(memoriaWB),
+	.aluSaida(aluWB),
+	.controle(saidaWBcontrole[0]),
+	.writeDataSaida(saidaWB)
+
+);
+
+
+
 Control unidadeControle(
 
-	.cmp_eq(), 
+	.cmp_eq(cmpControle), 
   	.opcode(saidaMem[31:26]),
-  	.PCsrc(),
+  	.PCsrc(seletorPC),
   	.IorD(controleAddrMem),
   	.IFflush(controleIFID), 
-  	.signExt(),
-  	.regWrite(), 
-  	.memToReg(),
-  	.memRead(),
-  	.memWrite(),
-  	.ALUsrc(), 
-  	.regDst()
+  	.signExt(extensorID),
+  	.regWrite(escreveReg), 
+  	.memToReg(memToRegEX),
+  	.memRead(lerMemEx),
+  	.memWrite(escreverMemEx),
+  	.ALUsrc(saidaEXcontrole), 
+  	.regDst(saida2EXcontrole),
+  	.opcodeOut(opcodeEX),
+  	.branch(branchControle)
 
 );
 
@@ -110,31 +180,50 @@ Fowarding unidadeFowarding(
 
 	.IDEX_rt(saidaIDEXrt), 
 	.IDEX_rs(saidaIDEXrs), 
-	.EXMEM_rd(), 
-	.MEMWB_rd(),
-  	.EXMEM_regWrite(), 
-  	.MEMWB_regWrite(),
-  	.MEMWB_MemtoReg(), 
-  	.EXMEM_MemWrite(),
+	.EXMEM_rd(regDestToMem), 
+	.MEMWB_rd(regDestMem),
+  	.EXMEM_regWrite(saidaWBexmem[1]), 
+  	.MEMWB_regWrite(saidaWBcontrole[1]),
+  	.MEMWB_MemtoReg(saidaWBcontrole[0]), 
+  	.EXMEM_MemWrite(saidaMexmem[2]),
   	.fwdSignalA(saidaFwdA), 
   	.fwdSignalB(saidaFwdB),
   	.fwdSignalC(saidaFwdC)
 
 );
 
-EXMEM exMEM(
+Hazard unidadeHazard(
 
-	.Clock(Clock),
-  	.WB(),
-  	.M(),
-  	.RD(),
-  	.entradaData(), 
-  	.saidaALU(saidaALU),
-  	.registradorM(),
-  	.registradorWB(),
-  	.saidaData(), 
-  	.registradorALU(aluMEM),
-  	.registradorRD()
+	.IFID_rs(rsIDEX), 
+	.IFID_rt(rtIDEX), 
+	.IDEX_rt(saidaIDEXrt),
+    .IDEX_memRead(saidaMidex[1]), 
+    .EXMEM_iord(saidaMexmem[0]), 
+    .branchFWD(branchControle),
+    .PCWrite(pcHazard), 
+    .IFIDWrite(ifIDhazard),
+    .HazMuxControle(hazardMux)
+);
+
+Branch_Detection(
+
+  .IFID_rs(rsIDEX),
+  .IFID_rt(rtIDEX),
+  .EXMEM_rd(regDestToMem), 
+  .MEMWB_rd(regDestMem),
+  .EXMEM_regWrite(saidaWBexmem[1]), 
+  .MEMWB_regWrite(saidaWBcontrole[1]),
+  .branchFWDA(branchA), 
+  .branchFWDB(branchB)
+
+);
+
+Mux2_1 muxControle(
+
+  .entradaA({opcodeEX, saidaEXcontrole, saida2EXcontrole, escreverMemEx, lerMemEx, controleAddrMem, escreveReg, memToRegEX}),
+  .entradaB(13'b0),
+  .controle(hazardMux),
+  .saida(muxC)
 
 );
 

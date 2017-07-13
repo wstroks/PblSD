@@ -15,7 +15,6 @@ module Fowarding(
          fwdSignalA = 2'b00;
    end
 
-   //Forward B
    always@(MEMWB_regWrite or MEMWB_rd or IDEX_rt or EXMEM_rd or EXMEM_regWrite)
    begin
       if(MEMWB_regWrite && (MEMWB_rd != 0) && (MEMWB_rd == IDEX_rt) && (EXMEM_rd != IDEX_rt))
@@ -26,9 +25,9 @@ module Fowarding(
          fwdSignalB = 2'b00;
    end
 
-   //Forward C
    always @ (MEMWB_MemtoReg) begin
      if (MEMWB_MemtoReg && EXMEM_MemWrite && MEMWB_rd == IDEX_rt)
         fwdSignalC = 1;
    end
+   
 endmodule

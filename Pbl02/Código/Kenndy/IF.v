@@ -1,9 +1,8 @@
 module IF(
 		input [31:0] entradaPC,ALu,data1,data2,
-		input PCescreve, clock, c1,c2,ler,escreve,
+		input PCescreve, clock, c1,c2,controleMemoria,
 		output [31:0] saidaMemoria,
-		output [31:0] saidaAdder
-		 
+		output [31:0] saidaAdder	 
 );
 
 wire um = 32'b100;
@@ -56,8 +55,7 @@ memoriaBloco memor
 (
 	.memEndereco(writeDataMemWB),
 	.memValor(SaidaDadosInstruc),
-	.escreverMemoria(escreve),
-	.lerMemoria(ler),
+	.escreverMemoria(controleMemoria),
 	.saida(saidaMemoria)
 );
   
