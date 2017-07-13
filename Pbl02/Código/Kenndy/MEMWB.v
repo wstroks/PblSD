@@ -5,7 +5,7 @@ module MEMWB(
 	input [1:0] WB,
 	output reg [31:0]	saidaALUwb, saidaMEM,
 	output reg [4:0] saidaDestinoData,
-	output reg registradorEscrita, registradorMEM
+	output reg [1:0] regWB
 );
 
  always @(posedge Clock) begin
@@ -13,8 +13,7 @@ module MEMWB(
 	saidaALUwb <= saidaALU;
 	saidaMEM <= dataMEM;
 	saidaDestinoData <= registradorDestinoData;
-	registradorEscrita <= WB[0];
-	registradorMEM <= WB[1];
+	regWB <= WB;
 
  end
 
