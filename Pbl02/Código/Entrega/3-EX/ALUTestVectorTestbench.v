@@ -27,7 +27,7 @@ module ALUTestVectorTestbench();
     reg [31:0] REFout; 
 
     wire [31:0] DUTout;
-    wire [4:0] ALUop;
+    wire [3:0] ALUop;
 
     // Task for checking output
     task checkOutput;
