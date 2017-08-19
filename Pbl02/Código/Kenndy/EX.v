@@ -5,11 +5,11 @@ module EX(
     input [5:0] opcode,
     input [4:0] rt, rd,
     output reg [4:0] destinoReg,
-    output reg [31:0] MuxS, final
+    output wire [31:0] MuxS, registradorDest
 );
   
 wire [4:0] ALUop;
-wire [31:0] MuxP, Mux2Saida;
+wire [31:0] MuxP, Mux2Saida,ffinal;
 
 Mux3_1 rsData(
   .entradaA(RSd), 
@@ -51,7 +51,7 @@ ALU aluVai(
     .A(MuxP),
     .B(Mux2Saida),
     .ALUop(ALUop),
-    .Out(final)
+    .Out(ffinal)
 );
 
 endmodule

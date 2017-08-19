@@ -1,6 +1,6 @@
 
 module SignExtend(
-	input [15:0] imediato,
+	input [31:0] imediato,
 	input controle,
 	output reg [31:0] saida
 );

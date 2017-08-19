@@ -1,0 +1,595 @@
+Analysis & Synthesis report for teste
+Fri Aug 18 15:32:27 2017
+Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |teste|uart:uart1|rx:recebe|estado
+  9. State Machine - |teste|uart:uart1|tx:transmissao|estado
+ 10. State Machine - |teste|uart:ut|rx:recebe|estado
+ 11. State Machine - |teste|uart:ut|tx:transmissao|estado
+ 12. User-Specified and Inferred Latches
+ 13. Registers Removed During Synthesis
+ 14. Removed Registers Triggering Further Register Optimizations
+ 15. General Register Statistics
+ 16. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 17. Parameter Settings for User Entity Instance: uart:ut|baud_rate_gen:uart_baud
+ 18. Parameter Settings for User Entity Instance: uart:uart1|baud_rate_gen:uart_baud
+ 19. Port Connectivity Checks: "memoria:aque"
+ 20. Port Connectivity Checks: "uart:uart1"
+ 21. Port Connectivity Checks: "uart:ut"
+ 22. Port Connectivity Checks: "arbitro:arbitro"
+ 23. Post-Synthesis Netlist Statistics for Top Partition
+ 24. Elapsed Time Per Partition
+ 25. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2017  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Intel and sold by Intel or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Fri Aug 18 15:32:27 2017       ;
+; Quartus Prime Version              ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
+; Revision Name                      ; teste                                       ;
+; Top-level Entity Name              ; teste                                       ;
+; Family                             ; Cyclone IV E                                ;
+; Total logic elements               ; 156                                         ;
+;     Total combinational functions  ; 146                                         ;
+;     Dedicated logic registers      ; 70                                          ;
+; Total registers                    ; 70                                          ;
+; Total pins                         ; 23                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP4CE30F23C7       ;                    ;
+; Top-level entity name                                                      ; teste              ; teste              ;
+; Family name                                                                ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; OpenCore Plus hardware evaluation                                          ; Enable             ; Enable             ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
++----------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                    ;
++-----------------------------------------+-----------------+------------------------+------------------------------------------------------------+---------+
+; File Name with User-Entered Path        ; Used in Netlist ; File Type              ; File Name with Absolute Path                               ; Library ;
++-----------------------------------------+-----------------+------------------------+------------------------------------------------------------+---------+
+; ../../../Desktop/uart/verilog/arbitro.v ; yes             ; User Verilog HDL File  ; C:/Users/wstro/Desktop/uart/verilog/arbitro.v              ;         ;
+; ../verilog/tx.v                         ; yes             ; User Verilog HDL File  ; C:/Users/wstro/Documents/uartTest/verilog/tx.v             ;         ;
+; ../verilog/teste.v                      ; yes             ; User Verilog HDL File  ; C:/Users/wstro/Documents/uartTest/verilog/teste.v          ;         ;
+; ../verilog/baud_rate.v                  ; yes             ; User Verilog HDL File  ; C:/Users/wstro/Documents/uartTest/verilog/baud_rate.v      ;         ;
+; ../verilog/Memoria.v                    ; yes             ; User Verilog HDL File  ; C:/Users/wstro/Documents/uartTest/verilog/Memoria.v        ;         ;
+; ../verilog/top_level_uart.v             ; yes             ; User Verilog HDL File  ; C:/Users/wstro/Documents/uartTest/verilog/top_level_uart.v ;         ;
+; ../verilog/estados_uart.v               ; yes             ; User Verilog HDL File  ; C:/Users/wstro/Documents/uartTest/verilog/estados_uart.v   ;         ;
+; ../verilog/rx.v                         ; yes             ; User Verilog HDL File  ; C:/Users/wstro/Documents/uartTest/verilog/rx.v             ;         ;
++-----------------------------------------+-----------------+------------------------+------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                     ;
++---------------------------------------------+-------------------+
+; Resource                                    ; Usage             ;
++---------------------------------------------+-------------------+
+; Estimated Total logic elements              ; 156               ;
+;                                             ;                   ;
+; Total combinational functions               ; 146               ;
+; Logic element usage by number of LUT inputs ;                   ;
+;     -- 4 input functions                    ; 76                ;
+;     -- 3 input functions                    ; 37                ;
+;     -- <=2 input functions                  ; 33                ;
+;                                             ;                   ;
+; Logic elements by mode                      ;                   ;
+;     -- normal mode                          ; 134               ;
+;     -- arithmetic mode                      ; 12                ;
+;                                             ;                   ;
+; Total registers                             ; 70                ;
+;     -- Dedicated logic registers            ; 70                ;
+;     -- I/O registers                        ; 0                 ;
+;                                             ;                   ;
+; I/O pins                                    ; 23                ;
+;                                             ;                   ;
+; Embedded Multiplier 9-bit elements          ; 0                 ;
+;                                             ;                   ;
+; Maximum fan-out node                        ; clock_50MHz~input ;
+; Maximum fan-out                             ; 70                ;
+; Total fan-out                               ; 677               ;
+; Average fan-out                             ; 2.58              ;
++---------------------------------------------+-------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                   ;
++---------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------+---------------+--------------+
+; Compilation Hierarchy Node      ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                       ; Entity Name   ; Library Name ;
++---------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------+---------------+--------------+
+; |teste                          ; 146 (1)             ; 70 (0)                    ; 0           ; 0            ; 0       ; 0         ; 23   ; 0            ; |teste                                    ; teste         ; work         ;
+;    |memoria:aque|               ; 17 (17)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |teste|memoria:aque                       ; memoria       ; work         ;
+;    |uart:uart1|                 ; 57 (0)              ; 26 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |teste|uart:uart1                         ; uart          ; work         ;
+;       |baud_rate_gen:uart_baud| ; 30 (30)             ; 14 (14)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |teste|uart:uart1|baud_rate_gen:uart_baud ; baud_rate_gen ; work         ;
+;       |rx:recebe|               ; 27 (27)             ; 12 (12)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |teste|uart:uart1|rx:recebe               ; rx            ; work         ;
+;    |uart:ut|                    ; 71 (0)              ; 44 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |teste|uart:ut                            ; uart          ; work         ;
+;       |rx:recebe|               ; 50 (50)             ; 28 (28)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |teste|uart:ut|rx:recebe                  ; rx            ; work         ;
+;       |tx:transmissao|          ; 21 (21)             ; 16 (16)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |teste|uart:ut|tx:transmissao             ; tx            ; work         ;
++---------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------+---------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------+
+; State Machine - |teste|uart:uart1|rx:recebe|estado ;
++-----------+-----------+-----------+----------------+
+; Name      ; estado.11 ; estado.01 ; estado.10      ;
++-----------+-----------+-----------+----------------+
+; estado.01 ; 0         ; 0         ; 0              ;
+; estado.10 ; 0         ; 1         ; 1              ;
+; estado.11 ; 1         ; 1         ; 0              ;
++-----------+-----------+-----------+----------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------+
+; State Machine - |teste|uart:uart1|tx:transmissao|estado   ;
++-----------+-----------+-----------+-----------+-----------+
+; Name      ; estado.11 ; estado.10 ; estado.01 ; estado.00 ;
++-----------+-----------+-----------+-----------+-----------+
+; estado.00 ; 0         ; 0         ; 0         ; 0         ;
+; estado.01 ; 0         ; 0         ; 1         ; 1         ;
+; estado.10 ; 0         ; 1         ; 0         ; 1         ;
+; estado.11 ; 1         ; 0         ; 0         ; 1         ;
++-----------+-----------+-----------+-----------+-----------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------+
+; State Machine - |teste|uart:ut|rx:recebe|estado ;
++-----------+-----------+-----------+-------------+
+; Name      ; estado.11 ; estado.01 ; estado.10   ;
++-----------+-----------+-----------+-------------+
+; estado.01 ; 0         ; 0         ; 0           ;
+; estado.10 ; 0         ; 1         ; 1           ;
+; estado.11 ; 1         ; 1         ; 0           ;
++-----------+-----------+-----------+-------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------+
+; State Machine - |teste|uart:ut|tx:transmissao|estado      ;
++-----------+-----------+-----------+-----------+-----------+
+; Name      ; estado.11 ; estado.10 ; estado.01 ; estado.00 ;
++-----------+-----------+-----------+-----------+-----------+
+; estado.00 ; 0         ; 0         ; 0         ; 0         ;
+; estado.01 ; 0         ; 0         ; 1         ; 1         ;
+; estado.10 ; 0         ; 1         ; 0         ; 1         ;
+; estado.11 ; 1         ; 0         ; 0         ; 1         ;
++-----------+-----------+-----------+-----------+-----------+
+
+
++---------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                     ;
++-----------------------------------------------------+--------------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal      ; Free of Timing Hazards ;
++-----------------------------------------------------+--------------------------+------------------------+
+; memoria:aque|ReadData[0]                            ; memoria:aque|ReadData[7] ; yes                    ;
+; memoria:aque|ReadData[1]                            ; memoria:aque|ReadData[7] ; yes                    ;
+; memoria:aque|ReadData[2]                            ; memoria:aque|ReadData[7] ; yes                    ;
+; memoria:aque|ReadData[3]                            ; memoria:aque|ReadData[7] ; yes                    ;
+; memoria:aque|ReadData[4]                            ; memoria:aque|ReadData[7] ; yes                    ;
+; memoria:aque|ReadData[5]                            ; memoria:aque|ReadData[7] ; yes                    ;
+; memoria:aque|ReadData[6]                            ; memoria:aque|ReadData[7] ; yes                    ;
+; memoria:aque|ReadData[7]                            ; memoria:aque|ReadData[7] ; yes                    ;
+; memoria:aque|memory~400                             ; write                    ; yes                    ;
+; memoria:aque|memory~401                             ; write                    ; yes                    ;
+; memoria:aque|memory~402                             ; write                    ; yes                    ;
+; memoria:aque|memory~403                             ; write                    ; yes                    ;
+; memoria:aque|memory~404                             ; write                    ; yes                    ;
+; memoria:aque|memory~405                             ; write                    ; yes                    ;
+; memoria:aque|memory~406                             ; write                    ; yes                    ;
+; memoria:aque|memory~407                             ; write                    ; yes                    ;
+; Number of user-specified and inferred latches = 16  ;                          ;                        ;
++-----------------------------------------------------+--------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                   ;
++-------------------------------------------+----------------------------------------------------------+
+; Register name                             ; Reason for Removal                                       ;
++-------------------------------------------+----------------------------------------------------------+
+; uart:uart1|tx:transmissao|dados[1..7]     ; Merged with uart:uart1|tx:transmissao|dados[0]           ;
+; uart:ut|baud_rate_gen:uart_baud|rx_acc[4] ; Merged with uart:uart1|baud_rate_gen:uart_baud|rx_acc[4] ;
+; uart:ut|baud_rate_gen:uart_baud|rx_acc[3] ; Merged with uart:uart1|baud_rate_gen:uart_baud|rx_acc[3] ;
+; uart:ut|baud_rate_gen:uart_baud|rx_acc[2] ; Merged with uart:uart1|baud_rate_gen:uart_baud|rx_acc[2] ;
+; uart:ut|baud_rate_gen:uart_baud|rx_acc[1] ; Merged with uart:uart1|baud_rate_gen:uart_baud|rx_acc[1] ;
+; uart:ut|baud_rate_gen:uart_baud|rx_acc[0] ; Merged with uart:uart1|baud_rate_gen:uart_baud|rx_acc[0] ;
+; uart:ut|baud_rate_gen:uart_baud|tx_acc[8] ; Merged with uart:uart1|baud_rate_gen:uart_baud|tx_acc[8] ;
+; uart:ut|baud_rate_gen:uart_baud|tx_acc[7] ; Merged with uart:uart1|baud_rate_gen:uart_baud|tx_acc[7] ;
+; uart:ut|baud_rate_gen:uart_baud|tx_acc[6] ; Merged with uart:uart1|baud_rate_gen:uart_baud|tx_acc[6] ;
+; uart:ut|baud_rate_gen:uart_baud|tx_acc[5] ; Merged with uart:uart1|baud_rate_gen:uart_baud|tx_acc[5] ;
+; uart:ut|baud_rate_gen:uart_baud|tx_acc[4] ; Merged with uart:uart1|baud_rate_gen:uart_baud|tx_acc[4] ;
+; uart:ut|baud_rate_gen:uart_baud|tx_acc[3] ; Merged with uart:uart1|baud_rate_gen:uart_baud|tx_acc[3] ;
+; uart:ut|baud_rate_gen:uart_baud|tx_acc[2] ; Merged with uart:uart1|baud_rate_gen:uart_baud|tx_acc[2] ;
+; uart:ut|baud_rate_gen:uart_baud|tx_acc[1] ; Merged with uart:uart1|baud_rate_gen:uart_baud|tx_acc[1] ;
+; uart:ut|baud_rate_gen:uart_baud|tx_acc[0] ; Merged with uart:uart1|baud_rate_gen:uart_baud|tx_acc[0] ;
+; uart:uart1|tx:transmissao|dados[0]        ; Stuck at GND due to stuck port data_in                   ;
+; uart:uart1|tx:transmissao|estado~5        ; Lost fanout                                              ;
+; uart:uart1|tx:transmissao|estado~6        ; Lost fanout                                              ;
+; uart:ut|tx:transmissao|estado~5           ; Lost fanout                                              ;
+; uart:ut|tx:transmissao|estado~6           ; Lost fanout                                              ;
+; uart:uart1|tx:transmissao|estado.01       ; Stuck at GND due to stuck port data_in                   ;
+; uart:uart1|tx:transmissao|estado.10       ; Stuck at GND due to stuck port data_in                   ;
+; uart:uart1|tx:transmissao|contador[0..2]  ; Lost fanout                                              ;
+; uart:uart1|tx:transmissao|estado.00       ; Stuck at GND due to stuck port data_in                   ;
+; uart:uart1|tx:transmissao|estado.11       ; Stuck at GND due to stuck port data_in                   ;
+; uart:uart1|tx:transmissao|tx              ; Stuck at VCC due to stuck port data_in                   ;
+; Total Number of Removed Registers = 34    ;                                                          ;
++-------------------------------------------+----------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                    ;
++-------------------------------------+---------------------------+------------------------------------------------------------------------------+
+; Register name                       ; Reason for Removal        ; Registers Removed due to This Register                                       ;
++-------------------------------------+---------------------------+------------------------------------------------------------------------------+
+; uart:uart1|tx:transmissao|dados[0]  ; Stuck at GND              ; uart:uart1|tx:transmissao|contador[2], uart:uart1|tx:transmissao|tx          ;
+;                                     ; due to stuck port data_in ;                                                                              ;
+; uart:uart1|tx:transmissao|estado.01 ; Stuck at GND              ; uart:uart1|tx:transmissao|contador[0], uart:uart1|tx:transmissao|contador[1] ;
+;                                     ; due to stuck port data_in ;                                                                              ;
++-------------------------------------+---------------------------+------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 70    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 30    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
+; 3:1                ; 3 bits    ; 6 LEs         ; 0 LEs                ; 6 LEs                  ; Yes        ; |teste|uart:uart1|tx:transmissao|contador[2] ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |teste|uart:uart1|rx:recebe|contador[0]      ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |teste|uart:ut|rx:recebe|contador[3]         ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 3 LEs                ; 6 LEs                  ; Yes        ; |teste|uart:ut|tx:transmissao|contador[2]    ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; Yes        ; |teste|uart:uart1|rx:recebe|amostra_dado[3]  ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; Yes        ; |teste|uart:ut|rx:recebe|amostra_dado[0]     ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |teste|uart:uart1|tx:transmissao|Selector3   ;
+; 7:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |teste|uart:uart1|rx:recebe|estado           ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |teste|uart:uart1|tx:transmissao|Selector2   ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |teste|uart:ut|tx:transmissao|Selector3      ;
+; 7:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |teste|uart:ut|rx:recebe|estado              ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; No         ; |teste|uart:ut|tx:transmissao|Selector2      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: uart:ut|baud_rate_gen:uart_baud ;
++----------------+-------+-----------------------------------------------------+
+; Parameter Name ; Value ; Type                                                ;
++----------------+-------+-----------------------------------------------------+
+; RX_ACC_MAX     ; 27    ; Signed Integer                                      ;
+; TX_ACC_MAX     ; 434   ; Signed Integer                                      ;
+; RX_ACC_WIDTH   ; 5     ; Signed Integer                                      ;
+; TX_ACC_WIDTH   ; 9     ; Signed Integer                                      ;
++----------------+-------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: uart:uart1|baud_rate_gen:uart_baud ;
++----------------+-------+--------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                   ;
++----------------+-------+--------------------------------------------------------+
+; RX_ACC_MAX     ; 27    ; Signed Integer                                         ;
+; TX_ACC_MAX     ; 434   ; Signed Integer                                         ;
+; RX_ACC_WIDTH   ; 5     ; Signed Integer                                         ;
+; TX_ACC_WIDTH   ; 9     ; Signed Integer                                         ;
++----------------+-------+--------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------+
+; Port Connectivity Checks: "memoria:aque"         ;
++----------------+-------+----------+--------------+
+; Port           ; Type  ; Severity ; Details      ;
++----------------+-------+----------+--------------+
+; Address[5..4]  ; Input ; Info     ; Stuck at VCC ;
+; Address[31..6] ; Input ; Info     ; Stuck at GND ;
+; Address[3..2]  ; Input ; Info     ; Stuck at GND ;
+; Address[1]     ; Input ; Info     ; Stuck at VCC ;
+; Address[0]     ; Input ; Info     ; Stuck at GND ;
++----------------+-------+----------+--------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "uart:uart1"                                                                            ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                             ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; tx_busy ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; dout    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "uart:ut"                                                                               ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                             ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; tx_busy ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------+
+; Port Connectivity Checks: "arbitro:arbitro"       ;
++-----------------+-------+----------+--------------+
+; Port            ; Type  ; Severity ; Details      ;
++-----------------+-------+----------+--------------+
+; endereco[5..4]  ; Input ; Info     ; Stuck at VCC ;
+; endereco[31..6] ; Input ; Info     ; Stuck at GND ;
+; endereco[3..2]  ; Input ; Info     ; Stuck at GND ;
+; endereco[1]     ; Input ; Info     ; Stuck at VCC ;
+; endereco[0]     ; Input ; Info     ; Stuck at GND ;
++-----------------+-------+----------+--------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 23                          ;
+; cycloneiii_ff         ; 70                          ;
+;     ENA               ; 30                          ;
+;     plain             ; 40                          ;
+; cycloneiii_lcell_comb ; 156                         ;
+;     arith             ; 12                          ;
+;         2 data inputs ; 12                          ;
+;     normal            ; 144                         ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 14                          ;
+;         2 data inputs ; 15                          ;
+;         3 data inputs ; 37                          ;
+;         4 data inputs ; 76                          ;
+;                       ;                             ;
+; Max LUT depth         ; 5.00                        ;
+; Average LUT depth     ; 2.84                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:05     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
+    Info: Processing started: Fri Aug 18 15:31:56 2017
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off teste -c teste
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file /users/wstro/desktop/uart/verilog/arbitro.v
+    Info (12023): Found entity 1: arbitro File: C:/Users/wstro/Desktop/uart/verilog/arbitro.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/wstro/documents/uarttest/verilog/tx.v
+    Info (12023): Found entity 1: tx File: C:/Users/wstro/Documents/uartTest/verilog/tx.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file /users/wstro/documents/uarttest/verilog/teste.v
+    Info (12023): Found entity 1: teste File: C:/Users/wstro/Documents/uartTest/verilog/teste.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/wstro/documents/uarttest/verilog/baud_rate.v
+    Info (12023): Found entity 1: baud_rate_gen File: C:/Users/wstro/Documents/uartTest/verilog/baud_rate.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/wstro/documents/uarttest/verilog/memoria.v
+    Info (12023): Found entity 1: memoria File: C:/Users/wstro/Documents/uartTest/verilog/Memoria.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file /users/wstro/documents/uarttest/verilog/top_level_uart.v
+    Info (12023): Found entity 1: uart File: C:/Users/wstro/Documents/uartTest/verilog/top_level_uart.v Line: 1
+Info (12021): Found 0 design units, including 0 entities, in source file /users/wstro/documents/uarttest/verilog/estados_uart.v
+Info (12021): Found 1 design units, including 1 entities, in source file /users/wstro/documents/uarttest/verilog/rx.v
+    Info (12023): Found entity 1: rx File: C:/Users/wstro/Documents/uartTest/verilog/rx.v Line: 2
+Warning (10236): Verilog HDL Implicit Net warning at teste.v(56): created implicit net for "busyTx0" File: C:/Users/wstro/Documents/uartTest/verilog/teste.v Line: 56
+Warning (10236): Verilog HDL Implicit Net warning at teste.v(69): created implicit net for "busyTx1" File: C:/Users/wstro/Documents/uartTest/verilog/teste.v Line: 69
+Info (12127): Elaborating entity "teste" for the top level hierarchy
+Warning (10230): Verilog HDL assignment warning at teste.v(32): truncated value with size 32 to match size of target (1) File: C:/Users/wstro/Documents/uartTest/verilog/teste.v Line: 32
+Warning (10230): Verilog HDL assignment warning at teste.v(33): truncated value with size 32 to match size of target (1) File: C:/Users/wstro/Documents/uartTest/verilog/teste.v Line: 33
+Warning (10034): Output port "LED_R" at teste.v(8) has no driver File: C:/Users/wstro/Documents/uartTest/verilog/teste.v Line: 8
+Info (12128): Elaborating entity "arbitro" for hierarchy "arbitro:arbitro" File: C:/Users/wstro/Documents/uartTest/verilog/teste.v Line: 49
+Warning (10230): Verilog HDL assignment warning at arbitro.v(8): truncated value with size 32 to match size of target (1) File: C:/Users/wstro/Desktop/uart/verilog/arbitro.v Line: 8
+Warning (10230): Verilog HDL assignment warning at arbitro.v(9): truncated value with size 32 to match size of target (1) File: C:/Users/wstro/Desktop/uart/verilog/arbitro.v Line: 9
+Warning (10230): Verilog HDL assignment warning at arbitro.v(11): truncated value with size 32 to match size of target (1) File: C:/Users/wstro/Desktop/uart/verilog/arbitro.v Line: 11
+Warning (10230): Verilog HDL assignment warning at arbitro.v(14): truncated value with size 32 to match size of target (1) File: C:/Users/wstro/Desktop/uart/verilog/arbitro.v Line: 14
+Warning (10230): Verilog HDL assignment warning at arbitro.v(15): truncated value with size 32 to match size of target (1) File: C:/Users/wstro/Desktop/uart/verilog/arbitro.v Line: 15
+Warning (10230): Verilog HDL assignment warning at arbitro.v(17): truncated value with size 32 to match size of target (1) File: C:/Users/wstro/Desktop/uart/verilog/arbitro.v Line: 17
+Info (12128): Elaborating entity "uart" for hierarchy "uart:ut" File: C:/Users/wstro/Documents/uartTest/verilog/teste.v Line: 61
+Info (12128): Elaborating entity "baud_rate_gen" for hierarchy "uart:ut|baud_rate_gen:uart_baud" File: C:/Users/wstro/Documents/uartTest/verilog/top_level_uart.v Line: 19
+Info (12128): Elaborating entity "tx" for hierarchy "uart:ut|tx:transmissao" File: C:/Users/wstro/Documents/uartTest/verilog/top_level_uart.v Line: 29
+Info (12128): Elaborating entity "rx" for hierarchy "uart:ut|rx:recebe" File: C:/Users/wstro/Documents/uartTest/verilog/top_level_uart.v Line: 39
+Info (12128): Elaborating entity "memoria" for hierarchy "memoria:aque" File: C:/Users/wstro/Documents/uartTest/verilog/teste.v Line: 83
+Warning (10240): Verilog HDL Always Construct warning at Memoria.v(24): inferring latch(es) for variable "addr_reg", which holds its previous value in one or more paths through the always construct File: C:/Users/wstro/Documents/uartTest/verilog/Memoria.v Line: 24
+Warning (10240): Verilog HDL Always Construct warning at Memoria.v(24): inferring latch(es) for variable "ReadData", which holds its previous value in one or more paths through the always construct File: C:/Users/wstro/Documents/uartTest/verilog/Memoria.v Line: 24
+Info (10041): Inferred latch for "ReadData[0]" at Memoria.v(24) File: C:/Users/wstro/Documents/uartTest/verilog/Memoria.v Line: 24
+Info (10041): Inferred latch for "ReadData[1]" at Memoria.v(24) File: C:/Users/wstro/Documents/uartTest/verilog/Memoria.v Line: 24
+Info (10041): Inferred latch for "ReadData[2]" at Memoria.v(24) File: C:/Users/wstro/Documents/uartTest/verilog/Memoria.v Line: 24
+Info (10041): Inferred latch for "ReadData[3]" at Memoria.v(24) File: C:/Users/wstro/Documents/uartTest/verilog/Memoria.v Line: 24
+Info (10041): Inferred latch for "ReadData[4]" at Memoria.v(24) File: C:/Users/wstro/Documents/uartTest/verilog/Memoria.v Line: 24
+Info (10041): Inferred latch for "ReadData[5]" at Memoria.v(24) File: C:/Users/wstro/Documents/uartTest/verilog/Memoria.v Line: 24
+Info (10041): Inferred latch for "ReadData[6]" at Memoria.v(24) File: C:/Users/wstro/Documents/uartTest/verilog/Memoria.v Line: 24
+Info (10041): Inferred latch for "ReadData[7]" at Memoria.v(24) File: C:/Users/wstro/Documents/uartTest/verilog/Memoria.v Line: 24
+Info (10041): Inferred latch for "addr_reg[0]" at Memoria.v(24) File: C:/Users/wstro/Documents/uartTest/verilog/Memoria.v Line: 24
+Info (10041): Inferred latch for "addr_reg[1]" at Memoria.v(24) File: C:/Users/wstro/Documents/uartTest/verilog/Memoria.v Line: 24
+Info (10041): Inferred latch for "addr_reg[2]" at Memoria.v(24) File: C:/Users/wstro/Documents/uartTest/verilog/Memoria.v Line: 24
+Info (10041): Inferred latch for "addr_reg[3]" at Memoria.v(24) File: C:/Users/wstro/Documents/uartTest/verilog/Memoria.v Line: 24
+Info (10041): Inferred latch for "addr_reg[4]" at Memoria.v(24) File: C:/Users/wstro/Documents/uartTest/verilog/Memoria.v Line: 24
+Info (10041): Inferred latch for "addr_reg[5]" at Memoria.v(24) File: C:/Users/wstro/Documents/uartTest/verilog/Memoria.v Line: 24
+Info (10041): Inferred latch for "addr_reg[6]" at Memoria.v(24) File: C:/Users/wstro/Documents/uartTest/verilog/Memoria.v Line: 24
+Info (10041): Inferred latch for "addr_reg[7]" at Memoria.v(24) File: C:/Users/wstro/Documents/uartTest/verilog/Memoria.v Line: 24
+Info (10041): Inferred latch for "addr_reg[8]" at Memoria.v(24) File: C:/Users/wstro/Documents/uartTest/verilog/Memoria.v Line: 24
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "Uart_tx1" is stuck at VCC File: C:/Users/wstro/Documents/uartTest/verilog/teste.v Line: 7
+    Warning (13410): Pin "LED_R" is stuck at GND File: C:/Users/wstro/Documents/uartTest/verilog/teste.v Line: 8
+    Warning (13410): Pin "LEDM_C[0]" is stuck at GND File: C:/Users/wstro/Documents/uartTest/verilog/teste.v Line: 11
+    Warning (13410): Pin "LEDM_C[1]" is stuck at VCC File: C:/Users/wstro/Documents/uartTest/verilog/teste.v Line: 11
+    Warning (13410): Pin "LEDM_C[2]" is stuck at VCC File: C:/Users/wstro/Documents/uartTest/verilog/teste.v Line: 11
+    Warning (13410): Pin "LEDM_C[3]" is stuck at VCC File: C:/Users/wstro/Documents/uartTest/verilog/teste.v Line: 11
+    Warning (13410): Pin "LEDM_C[4]" is stuck at VCC File: C:/Users/wstro/Documents/uartTest/verilog/teste.v Line: 11
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 7 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 3 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "Switch[0]" File: C:/Users/wstro/Documents/uartTest/verilog/teste.v Line: 5
+    Warning (15610): No output dependent on input pin "Switch[2]" File: C:/Users/wstro/Documents/uartTest/verilog/teste.v Line: 5
+    Warning (15610): No output dependent on input pin "Switch[3]" File: C:/Users/wstro/Documents/uartTest/verilog/teste.v Line: 5
+Info (21057): Implemented 188 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 7 input pins
+    Info (21059): Implemented 16 output pins
+    Info (21061): Implemented 165 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 26 warnings
+    Info: Peak virtual memory: 649 megabytes
+    Info: Processing ended: Fri Aug 18 15:32:27 2017
+    Info: Elapsed time: 00:00:31
+    Info: Total CPU time (on all processors): 00:00:39
+
+

@@ -1,0 +1,61 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "UART_Tx",
+					"strict" : false
+				},
+				{
+					"name" : "LEDM_R[0]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDM_R[1]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDM_R[2]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDM_R[3]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDM_R[4]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDM_R[5]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDM_R[6]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDM_R[7]",
+					"strict" : false
+				},
+				{
+					"name" : "Switch[1]",
+					"strict" : false
+				},
+				{
+					"name" : "clock_50MHz",
+					"strict" : false
+				},
+				{
+					"name" : "Uart_rx1",
+					"strict" : false
+				},
+				{
+					"name" : "UART_Rx",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

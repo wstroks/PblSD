@@ -11,7 +11,7 @@ module ID(
 
 );
   
-  wire [31:0] rdata0out, rdata1out, extendedOut, jump, muxOut1, muxOut2, branch;
+  wire [31:0] rdata0out, rdata1out, extendedOut, jump, muxOut1, muxOut2, branch,RSdata;
   wire [31:0] zero = 32'b0; // flush
 
   assign addrRsOut = inst[25:21];
@@ -59,7 +59,7 @@ Mux4_1 forA(
   .entradaC(exOut),
   .entradaD(zero),
   .controle(forbranchA),
-  .Out(muxOut1)
+  .saidaMux4_1(muxOut1)
   );
 
 Mux4_1 forB(

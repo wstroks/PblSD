@@ -10,7 +10,7 @@ module registerBank
 	output reg [31:0] saida2
 
 );
-	reg [31:0] registrador_32 [31:0];
+	wire [31:0] registrador_32 [31:0];
 	
 
 
@@ -21,14 +21,14 @@ module registerBank
 	begin
 	    for(i = 0; i < 32; i = i+1)
 		begin
-	        registrador_32[i] = 32'd4;
+	       // registrador_32[i] = 32'd4;
 		end
 	end
 	
  	always @(clk, destinoDoescreverData, wdataValor, VaiEscrever) begin
 		if (VaiEscrever && clk) begin
 			
-			registrador_32[destinoDoescreverData] <= wdataValor;
+		//registrador_32[destinoDoescreverData] = wdataValor;
 		end
 	end
 

@@ -1,16 +1,16 @@
 /*
- Alunos: Washington Pagotto Batista, Pedro kenndy e Ivan Rios
+ Alunos: Washington Pagotto Batista, Pedro kenndy e Ivan
  Universidade Estadual de Feira de Santana 2017.1
  TEC499 - MI - Sistemas Digitais
 
  Modulo: PcAdder.v
- Descrição: Modulo criado para quinto estagio da pipeline 
+ Descriï¿½ï¿½o: Modulo criado para quinto estagio da pipeline 
  Entradas:
     memEndereco,memValor: 32-bit value
     controle: bit value
 	
  Saida:
-    saidaAdder: saida será um valor armazenado em na memoria, seja um escrita não gera uma saida
+    saidaAdder: saida serï¿½ um valor armazenado em na memoria, seja um escrita nï¿½o gera uma saida
 */
 module memoriaBloco
 (
@@ -20,14 +20,14 @@ module memoriaBloco
 	input controle,
 	output reg [31:0] saida
 );
-	reg [31:0] Bloco [1500:0];
+	wire [31:0] Bloco [31:0];
 	
 	integer i;
 	initial
 	begin
 	    
-	for(i=0; i<1500;i=i+1)begin
-		Bloco[i]=i;
+	for(i=0; i<31;i=i+1)begin
+		//Bloco[i]=i;
 	end
 	end
 
@@ -36,9 +36,9 @@ module memoriaBloco
 	
   always @(*) begin
 		if (~controle)			
-			Bloco[memEndereco] = memValor;
+		//assign	Bloco[memEndereco] = memValor;
 		
-		else 			
+				
 			saida = Bloco[memEndereco];
 		
 	end

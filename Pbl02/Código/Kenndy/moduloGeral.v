@@ -4,14 +4,14 @@ module moduloGeral(
   output reg [31:0] dadoSaida
 );
 
-wire [31:0] saidaMem, saidaPcIF, saidaALU, RS, RT, imEX, aluMEM, entradaPCmult, entradaPcID, entradaInstID, RTdataEXMEM;
+wire [31:0] saidaMem, saidaPcIF,saidaPc, saidaALU, RS, RT, imEX, aluMEM, entradaPCmult, entradaPcID, entradaInstID, RTdataEXMEM;
 wire [31:0] entradaIDEXrs, entradaIDEXrt, entradaIDEX, entradaIDEXpc, entradaIDEXimm, PCidex, RTdataIF;
 wire [31:0] memoriaWB, aluWB, saidaWB;
 wire OpcodeJump, OpcodeDiv, controleIFID, controlerAddrMem, saidaFwdC, escreveReg, extensorID, cmpControle;
 wire [1:0] saidaFwdA, saidaFwdB, seletorPC, saidaWBidex, saidaWBexmem, saidaWBcontrole;
 wire [4:0] saidaIDEXrt, saidaIDEXrs, saidaIDEXrd, rsIDEX, rdIDEX, rtIDEX, regDestEXMEM, regDestToMem, regDestMem;
 wire saidaEXcontrole, saida2EXcontrole, memToRegEX, escreverMemEx, lerMemEx, branchControle, pcHazard, ifIDhazard, hazardMux;
-wire branchA, branchB;
+wire branchA, branchB,controleAddrMem;
 wire [5:0] opcodeEX;
 wire [2:0] saidaMidex, saidaMexmem;
 wire [13:0] muxC;
@@ -114,7 +114,7 @@ EX moduloEX(
     .MuxS(RTdataEXMEM), 
     .rt(saidaIDEXrt),
     .rd(saidaIDEXrd),
-    .final(saidaALU)
+    
 
 );
 
@@ -194,7 +194,7 @@ Fowarding unidadeFowarding(
 
 );
 
-Hazard unidadeHazard(
+Harzard unidadeHazard(
 
 	.IFID_rs(rsIDEX), 
 	.IFID_rt(rtIDEX), 
@@ -207,7 +207,7 @@ Hazard unidadeHazard(
     .HazMuxControle(hazardMux)
 );
 
-Branch_Detection(
+Branch_Detection xxx(
 
   .IFID_rs(rsIDEX),
   .IFID_rt(rtIDEX),

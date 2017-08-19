@@ -12,7 +12,7 @@ module Harzard(
            HazMuxControle = 1;
        end
     else
-       begin//não bolha
+       begin//nï¿½o bolha
            PCWrite = 1;
            IFIDWrite = 1;
            HazMuxControle = 0;

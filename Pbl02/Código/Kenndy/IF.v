@@ -5,9 +5,9 @@ module IF(
 		output [31:0] saidaAdder	 
 );
 
-wire um = 32'b100;
-wire [31:0] Pcsaida, SaidaDadosInstruc,writeDataMemWB;
 
+wire [31:0] Pcsaida, SaidaDadosInstruc,writeDataMemWB,um;
+assign  um = 32'b100;
 /*
 	Logica do PC
 */
